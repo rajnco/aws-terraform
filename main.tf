@@ -42,9 +42,8 @@ resource "random_integer" "random_integer_10" {
 }
 
 resource "random_pet" "multiple_names" {
-  count     = random_integer.random_integer_10.result
+  count     = 10
   length    = 5
   separator = "-"
 }
-
 

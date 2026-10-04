@@ -4,8 +4,11 @@ output "generated_pet_name" {
 }
 
 output "generated_pet_names" {
-  description = "The generated pet names."
-  value       = [for pet in random_pet.multiple_names : pet.id]
+  description = "The randomly selected number of generated pet names."
+  value = [
+    for index, pet in random_pet.multiple_names : pet.id
+    if index < random_integer.random_integer_10.result
+  ]
 }
 
 output "generated_pet_count" {
