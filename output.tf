@@ -3,6 +3,11 @@ output "generated_pet_name" {
   value       = random_pet.name.id
 }
 
+output "generated_pet_names" {
+  description = "The generated pet names."
+  value       = [for pet in random_pet.multiple_names : pet.id]
+}
+
 output "generated_number" {
   description = "The generated number written to hello.txt."
   value       = random_integer.number.result
