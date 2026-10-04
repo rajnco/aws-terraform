@@ -44,7 +44,7 @@ resource "random_integer" "less_than_10" {
 variable "pet_count" {
   description = "The number of random pet names to generate."
   type        = number
-  default     = "${var.random_integer.less_than_10.result}"
+  default     = 5
   validation {
     condition     = var.pet_count > 0 && var.pet_count <= 10
     error_message = "The pet_count variable must be greater than zero and less than or equal to 10."
@@ -56,7 +56,6 @@ resource "random_pet" "multiple_names" {
   length    = 5
   separator = "-"
 }
-
 
 
 
